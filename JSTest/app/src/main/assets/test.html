@@ -2,6 +2,8 @@
 <input type="button" id="btnB" value="Btn B"/>
 <input type="text" id="text" value="null"/>
 <script language="JavaScript">
+    
+    <!--调用安卓的方法-->
     var btn1=document.getElementById("btnA");
     btn1.onclick=function(){
         appNativeJavascriptBridge.functionA("I'm A");
@@ -12,7 +14,7 @@
         appNativeJavascriptBridge.functionB("I'm B");
     }
 
-
+    <!--被安卓调用的方法-->
     function javaCallJsFunction(str){
         document.getElementById("text").value = str;
     }
