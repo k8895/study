@@ -1,0 +1,22 @@
+<input type="button" id="btnA" value="Btn A"/>
+<input type="button" id="btnB" value="Btn B"/>
+<input type="text" id="text" value="null"/>
+<script language="JavaScript">
+    var btn1=document.getElementById("btnA");
+    btn1.onclick=function(){
+        appNativeJavascriptBridge.functionA("I'm A");
+    }
+
+    var btn2=document.getElementById("btnB");
+    btn2.onclick=function(){
+        appNativeJavascriptBridge.functionB("I'm B");
+    }
+
+
+    function javaCallJsFunction(str){
+        document.getElementById("text").value = str;
+    }
+
+
+</script>
+
