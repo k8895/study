@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+
+        //Jquery基本操作
+
+        function click1() {
+//            var div = $('#list');
+//            alert(div);
+            //按tag查找
+//            var ps=$('p');
+//            alert(ps.length);
+            //按class查找
+//            var clazz = $('.clazz');
+//            alert(clazz.length);
+        }
+
+        //按属性查找
+        //        var email = $('[name=email]'); // 找出<??? name="email">
+        //        var passwordInput = $('[type=password]'); // 找出<??? type="password">
+        //        var a = $('[items="A B"]'); // 找出<??? items="A B">
+
+        //组合查找 （找出input 中 name=email 的）
+        //        var emailInput = $('input[name=email]');
+
+        //多项选择器 多项选择器就是把多个选择器用,组合起来一块选：
+        //        $('p,div'); // 把<p>和<div>都选出来
+        //        $('p.red,p.green'); // 把<p class="red">和<p class="green">都选出来
+
+
+        function click2() {
+            //分别获取文本和HTML：
+            console.log($('#test-ul li[name=book]').text()); // 'Java JavaScript'
+            console.log($('#test-ul li[name=book]').html()); // 'Java JavaScript'
+
+            //设置文本和HTML
+            $('#test-ul li[name=book]').text('abcd');
+            $('#test-ul li[class=js]').html('123');
+
+            //改变所有节点
+//            $('#test-ul li').text('JS');
+        }
+
+        //修改CSS
+        function click3() {
+            $('#test-css li.dy>span').css('background-color', '#ffd351').css('color', 'red');
+        }
+
+        //        jQuery对象的所有方法都返回一个jQuery对象（可能是新的也可能是自身），这样我们可以进行链式调用，非常方便。
+        //
+        //        jQuery对象的css()方法可以这么用：
+        //        var div = $('#test-div');
+        //        div.css('color'); // '#000033', 获取CSS属性
+        //        div.css('color', '#336699'); // 设置CSS属性
+        //        div.css('color', ''); // 清除CSS属性
+
+
+        //设置高亮显示
+        function click4() {
+            var div = $('#test-css');
+            //给js添加css
+            div.find('.js').addClass('highlight');
+            div.find('.highlight').css('backgroundColor', 'blue');
+        }
+
+        function click5() {
+            var test = $('#test-css').find('.js');
+            test.hide();
+        }
+
+        function click6() {
+            var test = $('#test-css').find('.js');
+            test.show();
+        }
+
+        //利用jQuery对象的若干方法，我们直接可以获取DOM的高宽等信息，而无需针对不同浏览器编写特定代码：
+
+        // 浏览器可视窗口大小:
+        //        $(window).width(); // 800
+        //        $(window).height(); // 600
+        //
+        //        // HTML文档大小:
+        //        $(document).width(); // 800
+        //        $(document).height(); // 3500
+        //
+        //        // 某个div的大小:
+        //        var div = $('#test-div');
+        //        div.width(); // 600
+        //        div.height(); // 300
+        //        div.width(400); // 设置CSS属性 width: 400px，是否生效要看CSS是否有效
+        //        div.height('200px'); // 设置CSS属性 height: 200px，是否生效要看CSS是否有效
+
+
+        //attr()和removeAttr()方法用于操作DOM节点的属性：
+        //        var div = $('#test-div');
+        //        div.attr('data'); // undefined, 属性不存在
+        //        div.attr('name'); // 'Test'
+        //        div.attr('name', 'Hello'); // div的name属性变为'Hello'
+        //        div.removeAttr('name'); // 删除name属性
+        //        div.attr('name'); // undefined
+
+
+        //添加DOM（append()把DOM添加到最后，prepend()则把DOM添加到最前。同级节点可以用after()或者before()方法。）
+        function click7() {
+            var ui=$('#test-div>ul');
+            ui.append('<li><span>Haskell</span></li>');
+        }
+
+        //要删除DOM节点，拿到jQuery对象后直接调用remove()方法就可以了。如果jQuery对象包含若干DOM节点，实际上可以一次删除多个DOM节点：
+
+    </script>
+
+    <style>
+        .highlight {
+            color: #dd1144;
+            background-color: #ffd351;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="list">
+    <p id="js">js</p>
+    <p id="java">Java</p>
+    <p id="python">Python</p>
+    <p id="scheme">Scheme</p>
+    <p class="clazz">clazz1</p>
+    <p class="clazz">clazz2</p>
+    <p class="clazz">clazz3</p>
+</div>
+
+<input type="button" value="btn1" onclick="click1()"/>
+<br/>
+
+<h5>----------------------------------------------------------------------</h5>
+
+<ul id="test-ul">
+    <li class="js">JavaScript</li>
+    <li name="book">Java &amp; JavaScript</li>
+</ul>
+
+<input type="button" value="获取和修改内容" onclick="click2()"/>
+<br/>
+
+<h5>----------------------------------------------------------------------</h5>
+
+<ul id="test-css">
+    <li class="lang dy"><span>JavaScript</span></li>
+    <li class="lang"><span>Java</span></li>
+    <li class="lang dy"><span>Python</span></li>
+    <li class="lang"><span>Swift</span></li>
+    <li class="lang dy"><span>Scheme</span></li>
+    <li class="js"><span>test</span></li>
+</ul>
+<input type="button" value="修改CSS" onclick="click3()"/>
+<input type="button" value="设置高亮test" onclick="click4()"/>
+<br/><br/>
+<input type="button" value="隐藏test" onclick="click5()"/>
+<input type="button" value="显示test" onclick="click6()"/>
+<br/>
+
+<h5>----------------------------------------------------------------------</h5>
+
+<div id="test-div">
+    <ul>
+        <li><span>JavaScript</span></li>
+        <li><span>Python</span></li>
+        <li><span>Swift</span></li>
+    </ul>
+</div>
+<input type="button" value="添加DOM" onclick="click7()"/>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

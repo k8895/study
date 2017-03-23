@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+
+        //Jquery事件
+
+        $(function () {
+            $('#btn1').click(function () {
+                alert('事件1和2等价!');
+            });
+        });
+
+
+        function click2() {
+            alert('事件1和2等价');
+        }
+
+
+//        鼠标事件
+//        click: 鼠标单击时触发；
+//        dblclick：鼠标双击时触发；
+//        mouseenter：鼠标进入时触发；
+//        mouseleave：鼠标移出时触发；
+//        mousemove：鼠标在DOM内部移动时触发；
+//        hover：鼠标进入和退出时触发两个函数，相当于mouseenter加上mouseleave。
+//
+//        键盘事件
+//        键盘事件仅作用在当前焦点的DOM上，通常是<input>和<textarea>。
+//        keydown：键盘按下时触发；
+//        keyup：键盘松开时触发；
+//        keypress：按一次键后触发。
+//
+//        其他事件
+//        focus：当DOM获得焦点时触发；
+//        blur：当DOM失去焦点时触发；
+//        change：当<input>、<select>或<textarea>的内容改变时触发；
+//        submit：当<form>提交时触发；
+//        ready：当页面被载入并且DOM树完成初始化后触发。
+
+//        其中，ready仅作用于document对象。由于ready事件在DOM完成初始化后触发，且只触发一次，所以非常适合用来写其他的初始化代码。
+//        可以再简化为：
+//        $(function () {
+//            // init...
+//        });
+
+
+
+//        事件参数，如mousemove和keypress，我们需要获取鼠标位置和按键的值，否则监听这些事件就没什么意义了。所有事件都会传入Event对象作为参数，可以从Event对象上获取到更多的信息：
+        $(function () {
+            $('#testMouseMoveDiv').mousemove(function (e) {
+                $('#testMouseMoveSpan').text('pageX = ' + e.pageX + ', pageY = ' + e.pageY);
+            });
+        });
+
+
+//        取消绑定,一个已被绑定的事件可以解除绑定，通过off('click', function)实现：
+//        绑定和解绑的必须是同一个函数
+//        function hello() {
+//            alert('hello!');
+//        }
+//
+//        a.click(hello); // 绑定事件
+//
+//        // 10秒钟后解除绑定:
+//        setTimeout(function () {
+//            a.off('click', hello);
+//        }, 10000);
+
+
+//        事件触发条件
+//
+//        一个需要注意的问题是，事件的触发总是由用户操作引发的。例如，我们监控文本框的内容改动：
+//
+//        var input = $('#test-input');
+//        input.change(function () {
+//            console.log('changed...');
+//        });
+//        当用户在文本框中输入时，就会触发change事件。但是，如果用JavaScript代码去改动文本框的值，将不会触发change事件：
+//
+//        var input = $('#test-input');
+//        input.val('change it!'); // 无法触发change事件
+//        有些时候，我们希望用代码触发change事件，可以直接调用无参数的change()方法来触发该事件：
+//
+//        var input = $('#test-input');
+//        input.val('change it!');
+//        input.change(); // 触发change事件
+//        input.change()相当于input.trigger('change')，它是trigger()方法的简写。
+
+
+    </script>
+
+
+</head>
+<body>
+
+<input type="button" id="btn1" value="获取事件方法1"/>
+<input type="button" id="btn2" value="获取事件方法2" onclick="click2()"/>
+<br/>
+
+<h5>------------------------------------------------------------</h5>
+
+
+<p>mousemove: <span id="testMouseMoveSpan"></span></p>
+<br/>
+<div id="testMouseMoveDiv" style="display: block; width: 300px; height: 120px; border: 1px solid #ccc;">在此区域移动鼠标试试</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,227 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+        //修改DOM数节点
+        function click1() {
+//            alert('button1 Click 修改节点');
+            var testp = document.getElementById('test');
+            testp.innerHTML = 'My<span style="color:red"> Second </span> xxx';
+        }
+
+        //已存在节点插入（移动）到DOM树新位置
+        function click2() {
+//            alert('button2 Click');
+            var js = document.getElementById('js');
+            var list = document.getElementById('list');
+            list.appendChild(js);
+        }
+
+        //动态创建一个节点然后添加到DOM树中 某个节点的最后位置
+        function click3() {
+//            alert('button3 click');
+            var list = document.getElementById('list');
+            var haskell = document.createElement('p');
+            haskell.id = 'haskell';
+            haskell.innerText = 'Haskell';
+            list.appendChild(haskell);
+        }
+
+        //动态创建一个节点然后添加到DOM树中 某个节点的之前
+        function click4() {
+//            alert('button4 click');
+            var list = document.getElementById('list');
+            var python = document.getElementById('python');
+            var php = document.createElement('p');
+            php.id = 'php';
+            php.innerText = 'Php';
+            list.insertBefore(php, python);
+        }
+
+        //删除第一个节点
+        function click5() {
+            var parent = document.getElementById('list');
+            parent.removeChild(parent.children[0]);
+        }
+
+        //删除指定节点
+        function click6() {
+            var self = document.getElementById('python');
+            var parent = self.parentElement;
+            parent.removeChild(self);
+        }
+
+        //获取值
+        function click7() {
+            var text = document.getElementById('email');
+            var mon = document.getElementById('monday');
+            var tue = document.getElementById('tuesday');
+            alert(text.value + '---' + mon.checked + "---" + tue.checked);
+        }
+
+        //设置值
+        function click8() {
+            var text = document.getElementById('email');
+            text.value = "abc"
+        }
+
+        //提交表单(要return true来告诉浏览器继续提交，如果return false，浏览器将不会继续提交form，这种情况通常对应用户输入有误，提示用户错误信息后终止提交form)
+        function click9() {
+            var form = document.getElementById('test-form');
+            // 可以在此修改form的input...
+            // 继续下一步:
+            return true;
+        }
+
+        //表单发送
+        function click10() {
+            var pwd = document.getElementById('password');
+            // 把用户输入的明文变为MD5:
+            pwd.value = toMD5(pwd.value);
+            // 继续下一步:
+            return true;
+        }
+
+        //文件操作 $为jqurey操作符，页面执行完毕自动执行此函数
+        $(function() {
+            var fileInput = document.getElementById('test-image-file');
+            var info = document.getElementById('test-file-info');
+            var preview = document.getElementById('test-image-preview');
+            fileInput.addEventListener('change', function () {
+                preview.style.backgroundImage = '';
+                if (!fileInput.value) {
+                    info.innerHTML = '没有选择文件';
+                    return;
+                }
+                var file = fileInput.files[0];
+                info.innerHTML = '文件: ' + file.name + '<br>' +
+                    '大小: ' + file.size + '<br>' +
+                    '修改: ' + file.lastModifiedDate;
+                if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') {
+                    alert('不是有效的图片文件!');
+                    return;
+                }
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var
+                        data = e.target.result;
+                    index = data.indexOf(';base64,');
+                    preview.style.backgroundImage = 'url(' + data + ')';
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+
+<p id="test">My first paragraph.</p>
+
+<input type="button" onclick="click1()" value="修改节点"/>
+
+<h5>------------------------------------------------------------------</h5>
+
+<p id="js" style="color:red">JavaScript</p>
+<div id="list">
+    <p id="java">Java</p>
+    <p id="python">Python</p>
+    <p id="scheme">Scheme</p>
+</div>
+
+<input type="button" onclick="click2()" value="移动节点"/>
+<br/><br/>
+<input type="button" onclick="click3()" value="动态创建节点在最后位置"/>
+<br/><br/>
+<input type="button" onclick="click4()" value="动态创建节点在指定位置之前"/>
+<br/><br/>
+<input type="button" onclick="click5()" value="删除第一个节点"/>
+<br/><br/>
+<input type="button" onclick="click6()" value="删除指定节点"/>
+<br/><br/>
+
+<h5>------------------------------------------------------------------</h5>
+
+<input type="text" id="email">
+<label><input type="radio" name="weekday" id="monday" value="1"> Monday</label>
+<label><input type="radio" name="weekday" id="tuesday" value="2"> Tuesday</label>
+
+<br/><br/>
+<input type="button" onclick="click7()" value="获取信息"/>
+<br/><br/>
+<input type="button" onclick="click8()" value="设置信息abc"/>
+<br/><br/>
+
+<h5>------------------------------------------------------------------</h5>
+
+<form id="test-form">
+    <input type="text" name="test">
+    <button type="submit" onclick="return click9()">Submit</button>
+</form>
+
+<br/><br/>
+
+<form id="login-form" method="post" onsubmit="return click10()">
+    <input type="text" id="username" name="username">
+    <input type="password" id="password" name="password">
+    <button type="submit">Submit</button>
+</form>
+
+<h5>------------------------------------------------------------------</h5>
+
+<!--当一个表单包含<input type="file">时，表单的enctype必须指定为multipart/form-data，method必须指定为post，
+    浏览器才能正确编码并以multipart/form-data格式发送表单的数据。
+    出于安全考虑，浏览器只允许用户点击<input type="file">来选择本地文件，
+    用JavaScript对<input type="file">的value赋值是没有任何效果的。
+    当用户选择了上传某个文件后，JavaScript也无法获得该文件的真实路径：-->
+<form method="post" action="http://localhost/test" enctype="multipart/form-data">
+    <p>图片预览：</p>
+    <p></p>
+    <div id="test-image-preview"
+         style="border: 1px solid #ccc; width: 100%; height: 200px; background-size: contain; background-repeat: no-repeat; background-position: center center;"></div>
+    <p></p>
+    <p>
+        <input type="file" id="test-image-file" name="test">
+    </p>
+    <p id="test-file-info"></p>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
