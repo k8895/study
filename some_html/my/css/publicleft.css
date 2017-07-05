@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+#left {
+	
+	width: 270px;
+	height: 1080px;
+	background: #22272a;
+	position: fixed;
+	left: 0;
+	float:left;
+}
+#left1 {
+	width: 270px;
+	height: 140px;
+	color: #E4E4E4;
+	
+	
+}
+#left1 a {
+	margin: 50px 0 46px 50px;
+	float: left;
+}
+#left1 h3 {
+	font-size: 36px;
+	font-family:"华文隶书", "隶书";
+	text-align: center;
+	padding: 45px 0 5px 0;
+}
+#left1 p {
+	
+	text-indent: 45px;
+	font-size: 18px;
+	font-family:"华文隶书", "隶书";
+}
+
+#left2 li {
+	font-size: 26px;
+	font-weight: bold;
+	padding:45px 0 0 0;
+	text-indent:160px;
+	
+}
+#left2 a {
+	color: #E4E4E4;
+	display: block;
+}
+
+#left2 a:hover {
+	color: #121212;
+	background: url(../images/left2.gif) no-repeat;
+	opacity:0.8;
+}
+ #left ul p{
+	 font-size: 13px;}

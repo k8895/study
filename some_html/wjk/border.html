@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS外框边框不能自动撑开问题解决</title>
+</head>
+<style type="text/css">
+.wai {
+	width: 900px; /*height:770px;*/
+	margin: 0px auto;
+	border: 2px solid #CCC;
+	
+}
+div.top {
+	width: 900px;
+	height: 130px;
+	float: left;
+	background: url(images/1.jpg);
+	margin-bottom: 10px;
+	text-align: center;
+	font-family: 微软雅黑;
+	font-size: 30px;
+	padding-top: 20px;
+	font-weight: bold;
+	color: #000;
+}
+div.middle {
+	width: 490px;
+	height: 400px;
+	float: left;
+	background: url(images/1.jpg);
+	margin-right: 10px;
+}
+div.middle1 {
+	width: 400px;
+	height: 400px;
+	float: left;
+	background: url(images/1.jpg);
+}
+div.bottom {
+	width: 900px;
+	height: 200px;
+	float: left;
+	background: url(images/1.jpg);
+	margin-top: 10px;
+}
+div.clear{clear:both;}
+</style>
+<body>
+<div class="wai">
+  <div class="top">CSS简单布局</div>
+  <div class="middle"> </div>
+  <div class="middle1"> </div>
+  <div class="bottom"> </div>
+  <div class="clear"> </div><!--或者直接在这加<div style="clear:both;"></div>-->
+</div>
+</body>
+</html>

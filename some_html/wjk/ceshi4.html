@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+function MM_jumpMenuGo(objId,targ,restore){ //v9.0
+  var selObj = null;  with (document) { 
+  if (getElementById) selObj = getElementById(objId);
+  if (selObj) eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0; }
+}
+</script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <p>
+    <label>
+      <input type="radio" name="1111" value="单选" id="1111_0" />
+      111</label>
+    <br />
+    <label>
+      <input type="radio" name="1111" value="单选" id="1111_1" />
+      222</label>
+    <br />
+    <label>
+      <input type="radio" name="1111" value="单选" id="1111_2" />
+      333</label>
+    <br />
+  </p>
+</form>
+<select name="111">
+  <option>111</option>
+  <option>222</option>
+  <option>3333</option>
+12345</select>
+<form name="form" id="form"><br />
+
+  <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+    <option value="www.hao123.com">1111</option>
+    <option value="#">2222</option>
+  </select>
+</form><br />
+<input name="" type="file" />
+<br />
+<input name="1111" type="button" value="按钮" /><br />
+<br />
+<br />
+<select name="jumpMenu" id="jumpMenu">
+    <option value="http://www.youku.com/i/">优酷</option>
+    <option value="http://huaban.com/">花瓣</option>
+</select>
+  <input type="button" name="go_button" id= "go_button" value="前往" onclick="MM_jumpMenuGo('jumpMenu','parent',0)" /><br />
+<br />
+<form name="form2" id="form2">
+  <select name="jumpMenu2" id="jumpMenu2" onchange="MM_jumpMenu('parent',this,0)">
+    <option value="www.youku.com">youku</option>
+    <option value="www.huaban.com">huaban</option>
+  </select>
+</form><input type="button" />
+
+
+<form name="form3" id="form3">
+  <select name="jumpMenu3" id="jumpMenu3">
+    <option value="http://www.youku.com/">youku</option>
+    <option value="www.huaban.com" selected="selected">huaban</option>
+  </select>
+  <input type="button" name="go_button2" id= "go_button2" value="前往" onclick="MM_jumpMenuGo('jumpMenu3','parent',0)" />
+</form><br />
+
+<input type="image" src="images/3%E]1EU0ARD7IV(G3WY)PT5.jpg" alt="http://www.baidu.com/" /><br />
+<button><a href="http://www.baidu.com/" target="_blank"><img src="images/wph.gif" width="162" height="58" /></a></button>
+<br />
+<marquee>
+<img src="images/wph.gif" width="162" height="58" /></marquee>
+</body>
+
+</html>

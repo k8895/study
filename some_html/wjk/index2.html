@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>第二个网页</title>
+<script type="text/javascript">
+function MM_jumpMenuGo(objId,targ,restore){ //v9.0
+  var selObj = null;  with (document) { 
+  if (getElementById) selObj = getElementById(objId);
+  if (selObj) eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0; }
+}
+</script>
+</head>
+
+<body>
+<input type="text" value="单行文本字段" size="20" maxlength="6" />
+<br />
+<br />
+<input type="password" value="xxxxxx" size="18" maxlength="6" />
+<br />
+<br />
+<textarea cols="25" rows="5">多行文本字段，宽度25，行数5</textarea>
+<br />
+<br />
+<textarea cols="25" rows="5">   文本区域，宽度25，行数5</textarea>
+<br />
+<br />
+<input type="checkbox" />
+后面直接打字 <br />
+<br />
+<p>
+  <label>
+    <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
+    11</label>
+  <br />
+  <label>
+    <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_1" />
+    22</label>
+</p>
+<input type="radio" value="" />
+后面直接打字 <br />
+<p>
+  <label>
+    <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" />
+    11</label>
+  <br />
+  <label>
+    <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
+    22</label>
+  <br />
+  <label>
+    <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_2" />
+    33</label>
+  <br />
+</p>
+<select>
+  <option selected="selected">1111</option>
+  <option>2222</option>
+  <option>3333</option>
+</select>
+<form name="form" id="form">
+  <select name="jumpMenu" id="jumpMenu">
+    <option value="http://www.youku.com/i/">优酷</option>
+    <option value="http://huaban.com/">花瓣</option>
+  </select>
+  <input type="button" name="go_button" id= "go_button" value="前往" onclick="MM_jumpMenuGo('jumpMenu','parent',0)" />
+</form>
+<br />
+<input type="image" src="images/banner.jpg" />
+<br />
+<br />
+<input type="file" />
+<br />
+<input name="提交" type="submit" value="提交" />
+<input type="reset" name="button" id="button" value="重置" />
+<br />
+<button>这个按钮可以放图片和文字<img src="images/3%E]1EU0ARD7IV(G3WY)PT5.jpg" width="57" height="54" /></button>
+<br />
+<div style="width:100px; height:100px; border:1px solid #C09">
+  <marquee behavior="alternate" direction="up" height="50">
+  123
+  </marquee>
+</div>
+<br />
+</body>
+</html>

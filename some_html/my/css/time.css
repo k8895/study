@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background: url(../images/wrapper-bg.jpg);
+}
+#right {
+	margin: 0 0 0 270px;
+	width: 1080px;
+	float: left;
+}
+#inright1 {
+	float: left;
+	margin: 40px 0 30px 60px;
+	width: 900px;
+}
+
+#inright2 {
+	float: left;
+	background: url(../images/bj.png);
+	width: 870px;
+	height: 3151px;
+	margin: 25px 0 0 60px;
+	font-weight: bold;
+	color: #0E0E0E;
+	font-family: "黑体";
+}
+
+#inr21 {
+	background: url(../images/tou.png);
+	width:870px;
+	height:483px;
+}
+
+.inr22 {
+	width:800px;
+	height:667px;
+	background: url(../images/shenti.png) no-repeat;
+	padding: 22px 0 0 239px;
+}
+
+.inr22 p{
+	margin:105px 0 0 50px;
+	font-size:24px;
+	font-weight: normal;
+	width:420px;
+	font-family: "楷体";
+	letter-spacing: 2px;
+	font-weight: bold;
+	color:#282828;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

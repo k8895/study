@@ -1,0 +1,144 @@
+@charset "utf-8";
+/*公共格式*/
+body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, textarea, p {
+	margin: 0px;
+	padding: 0px;
+}
+ul {
+	list-style: none;
+}
+img, a img {
+	border: none;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+body {
+	background: url(images/body_bg.jpg) repeat-x;
+}
+.all {
+	width: 960px;
+	margin: 0 auto;
+}
+.top {
+	width: 960px;
+	float: left;
+	height: 46px;
+	margin: 20px 0;
+	background: url(images/mainnav_bg.gif) repeat-x;
+}
+.tophead {
+	background: url(images/mainnav_l.gif) no-repeat;
+	width: 10px;
+	height: 46px;
+	float: left;
+}
+.topbottom {
+	background: url(images/mainnav_r.gif) no-repeat;
+	width: 10px;
+	height: 46px;
+	float: right;
+}
+.oppo {
+	float: left;
+	width: 163px;
+	height: 46px;
+}
+.topul {
+	width: 777px;
+	height: 46px;
+	float: left;
+}
+.topul li {
+	float: left;
+}
+.topul a {
+	width: 150px;
+	height: 46px;
+	font-size: 14px;
+	color: #576267;
+	line-height: 46px;
+	text-align: center;
+	background: url(images/main_line.gif) no-repeat;
+	display: block;
+}
+.topul a:hover {
+	background: url(images/green_bg.jpg);
+	color: #fff;
+}
+.enter {
+	color: #979693;
+	font-size: 13px;
+	display: block;
+	float: right;
+}
+.enter a {
+	color: #979693;
+}
+.enter a:hover {
+	color: #43b43e;
+}
+/*开始搜索框*/
+.ss {
+	float: right;
+	background: url(images/search_03.gif);
+	width: 186px;
+	height: 23px;
+	margin: 0 20px 0 20px;
+}
+.text {
+	width: 140px;
+	height: 16px;
+	border: none;
+	margin: 0 0 1px 10px;
+}
+.sub {
+	background: url(images/search_biao.gif) no-repeat;
+	width: 20px;
+	height: 20px;
+	border: none;
+	margin: 3px 0 0 0px;
+	cursor: pointer;
+}
+/*end*/
+.img {
+	border: 2px solid #666666;
+	margin: 30px 0 0 0;
+	float: left;
+}
+.top2 {
+	float: left;
+	width: 960px;
+	padding: 20px 0 10px 0;
+	background: url(images/cat_tit.gif) no-repeat left bottom;
+	
+}
+.top2 h2 {
+	font-size: 16px;
+	color: #545351;
+	width: 200px;
+	float: left;
+}
+.top2 a {
+	float: right;
+	color: #767676;
+	font-size: 13px;
+}
+.pic{width:238px;
+		heighe:280px;
+		float:left;
+		font-size:13px;
+		color:#666666;
+		border:1px solid #CCC;
+		padding-bottom:15px;}
+.picc{margin:14px 14px 14px 14px;}
+.pic p{width:238px;
+ 		text-align:center;
+		line-height:30px;}
+.pic h4{font-weight:normal;
+		width:205px;
+		padding-left:33px;}
+
