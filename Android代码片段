@@ -1,7 +1,5 @@
 1---------------验证码倒计时---------------------------
 
-private CountDownTimer mCountDownTimer = new MyCountDownTimer(30 * 1000, 1000);
-
     private class MyCountDownTimer extends CountDownTimer {
 
         public MyCountDownTimer(long millisInFuture, long countDownInterval) {
@@ -19,6 +17,9 @@ private CountDownTimer mCountDownTimer = new MyCountDownTimer(30 * 1000, 1000);
             sendCodeBtn.setText(R.string.code_send_again);
         }
     }
+    
+    
+    private CountDownTimer mCountDownTimer = new MyCountDownTimer(30 * 1000, 1000);
     
     mCountDownTimer.start();
     mCountDownTimer.cancel();
