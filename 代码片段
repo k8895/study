@@ -1,0 +1,94 @@
+1---------------验证码倒计时---------------------------
+
+private CountDownTimer mCountDownTimer = new MyCountDownTimer(30 * 1000, 1000);
+
+    private class MyCountDownTimer extends CountDownTimer {
+
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            sendCodeBtn.setText(millisUntilFinished / 1000 + "s");
+        }
+
+        @Override
+        public void onFinish() {
+            sendCodeBtn.setEnabled(true);
+            sendCodeBtn.setText(R.string.code_send_again);
+        }
+    }
+    
+    mCountDownTimer.start();
+    mCountDownTimer.cancel();
+    
+    
+2------------------popupwindow----------------------------
+    
+    private PopupWindow mPopupWindow;
+     public void popupOverflowMenu() {
+        // 获取状态栏高度
+        Rect frame = new Rect();
+        getActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+        // 状态栏高度 frame.top
+        int yOffset = 0;
+//        if (getSupportActionBar() != null) {
+        yOffset = frame.top + Util.dpToPx(43); // 减去阴影宽度，适配UI
+//        }
+        int xOffset = Util.dpToPx(8);
+        if (mPopupWindow == null) {
+            View popView = getActivity().getLayoutInflater().inflate(R.layout.view_layout, null);
+            
+            popView.findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mPopupWindow.dismiss();
+                    //TODO
+                }
+            });
+
+            popView.findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mPopupWindow.dismiss();
+                    //TODO
+                }
+            });
+            // popView即popupWindow布局
+            mPopupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+            Drawable backgroundDrawable = Util.getWrappedDrawable(getActivity(), R.drawable.transparent);
+            mPopupWindow.setBackgroundDrawable(backgroundDrawable);
+            mPopupWindow.setTouchInterceptor(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return false;
+                }
+            });
+            mPopupWindow.setOutsideTouchable(true); // 点击外部关闭
+            mPopupWindow.setAnimationStyle(android.R.style.Animation_Dialog);
+        }
+        // 设置Gravity,让它显示在右上角
+        mPopupWindow.showAtLocation(rootLayout, Gravity.RIGHT | Gravity.TOP, xOffset, yOffset);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
