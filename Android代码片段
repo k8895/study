@@ -73,8 +73,12 @@
         mPopupWindow.showAtLocation(rootLayout, Gravity.RIGHT | Gravity.TOP, xOffset, yOffset);
     }
     
-    
-    
+3---------------拨打电话(要先请求权限)-------------------
+
+    public void call(String phone){
+        Intent intent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + phone));
+        startActivity(intent);
+    }
     
     
     
