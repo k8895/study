@@ -8,13 +8,14 @@
 
         @Override
         public void onTick(long millisUntilFinished) {
-            sendCodeBtn.setText(millisUntilFinished / 1000 + "s");
+            //sendCodeBtn.setText(millisUntilFinished / 1000 + "s");
         }
 
         @Override
         public void onFinish() {
-            sendCodeBtn.setEnabled(true);
-            sendCodeBtn.setText(R.string.code_send_again);
+            //sendCodeBtn.setEnabled(true);
+            //sendCodeBtn.setText(R.string.code_send_again);
+            //结束
         }
     }
     
