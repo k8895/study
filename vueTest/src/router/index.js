@@ -7,6 +7,9 @@ const main = r => require.ensure([], () => r(require('../page/other/main')), 'ma
 const demo1 = r => require.ensure([], () => r(require('../page/demo/demo1')), 'demo1')
 const demo2 = r => require.ensure([], () => r(require('../page/demo/demo2')), 'demo2')
 const demo3 = r => require.ensure([], () => r(require('../page/demo/demo3')), 'demo3')
+const demo4 = r => require.ensure([], () => r(require('../page/demo/demo4')), 'demo4')
+const demo5 = r => require.ensure([], () => r(require('../page/demo/demo5')), 'demo5')
+const demo6 = r => require.ensure([], () => r(require('../page/demo/demo6')), 'demo6')
 
 const Bar = {template: '<div>bar</div>'}
 const Baz = {template: '<div>baz</div>'}
@@ -23,7 +26,7 @@ const User = {
 export default new Router({
   routes: [
     {
-      path: '/vgou',
+      path: '/',
       name: 'vgou',
       component: vgou,
       children: [{
@@ -67,5 +70,17 @@ export default new Router({
       path: '/demo3',
       component: demo3
     },
+    {
+      path: '/demo4',
+      component: demo4
+    },
+    {
+      path: '/demo5',
+      component: demo5
+    },
+    {
+      path: '/demo6',
+      component: demo6
+    }
   ]
 })

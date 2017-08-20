@@ -14,14 +14,14 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {
         active: false
       }
     },
     methods: {
       toVgou: function () {
-        console.log("test")
+        console.log('test')
       }
     }
   }

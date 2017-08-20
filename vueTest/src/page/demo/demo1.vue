@@ -52,7 +52,7 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {
         isSee: true,
         todos: [
@@ -77,7 +77,7 @@
           10000000004,
           10000000005,
           10000000006,
-          10000000007,
+          10000000007
         ],
         urlList: [
           {url: 'http://www.baidu.com', name: 'ziksang', age: 20},
@@ -91,7 +91,7 @@
       }
     },
     filters: {
-      newTel(value) {
+      newTel (value) {
         if (!value) return ''
         value = value.toString().substr(7, 4)
         value = '*'.repeat(7) + value
@@ -103,8 +103,8 @@
         }
         return value
       },
-      getQuery(value, name, age) {
-        if (!value) return ""
+      getQuery (value, name, age) {
+        if (!value) return ''
         return `${value}?name=${name}&age=${age}`
       }
     }

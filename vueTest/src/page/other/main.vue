@@ -10,10 +10,8 @@
 
   export default {
     name: 'main',
-    data() {
-      return {
-
-      }
+    data () {
+      return {}
     },
     components: {
       footGuide
