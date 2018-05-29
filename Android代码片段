@@ -82,15 +82,130 @@
     }
     
     
+4----------------验证时间是否为今天-----------------------
+   
+	public boolean isToday(long timestamp) {
+		Calendar c = Calendar.getInstance();
+		clearCalendar(c, Calendar.HOUR_OF_DAY, Calendar.MINUTE, Calendar.SECOND, Calendar.MILLISECOND);
+		c.add(Calendar.DAY_OF_MONTH, 0);
+		long firstOfDay = c.getTimeInMillis();
+
+		c.setTimeInMillis(timestamp);
+		// 指定时间戳当天最早时间
+		clearCalendar(c, Calendar.HOUR_OF_DAY, Calendar.MINUTE, Calendar.SECOND, Calendar.MILLISECOND); 
+
+		return firstOfDay == c.getTimeInMillis();
+	}
+
+	private void clearCalendar(Calendar c, int... fields) {
+		for (int f : fields) {
+			c.set(f, 0);
+		}
+	}
     
+5-----------------下载文件夹位置--------------------------
+ 
+ android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
     
+6-----------------写入文件-------------------------------
     
+    /**
+     * 保存文本
+     *
+     * @param strcontent
+     */
+    public static void writeTxtToFile(String strcontent) {
+        //生成文件夹之后，再生成文件，不然会出错
+        String filePath = Environment.getExternalStorageDirectory().getPath();
+        String fileName = "/JsRequestLog.log";
+        makeFilePath(filePath, fileName);
+        String strFilePath = filePath + fileName;
+
+        // 每次写入时，都换行写
+        String strContent = getTime() + "---" + strcontent + "\r\n";
+        try {
+            File file = new File(strFilePath);
+            if (!file.exists()) {
+                Log.d("TestFile", "Create the file:" + strFilePath);
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            RandomAccessFile raf = new RandomAccessFile(file, "rwd");
+            raf.seek(file.length());
+            raf.write(strContent.getBytes());
+            raf.close();
+        } catch (Exception e) {
+            Log.e("TestFile", "Error on write File:" + e);
+        }
+    }
+
+    // 生成文件
+    public static File makeFilePath(String filePath, String fileName) {
+        File file = null;
+        makeRootDirectory(filePath);
+        try {
+            file = new File(filePath + fileName);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return file;
+    }
+
+    // 生成文件夹
+    public static void makeRootDirectory(String filePath) {
+        File file = null;
+        try {
+            file = new File(filePath);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+        } catch (Exception e) {
+            Log.i("error:", e + "");
+        }
+    }
     
+7-----------------分享到微信好友/朋友圈-------------------------------
     
-    
-    
-    
-    
+        /**
+     * 图片分享到好友/朋友圈
+     * @param context
+     * @param uri
+     */
+    public static void shareTextAndPicToWechat(Context context, Uri uri,int type) {
+        String packageName = "com.tencent.mm"; // 微信包名
+        String activity="";
+        // 1朋友圈 2好友
+        if(type==1){
+            activity="com.tencent.mm.ui.tools.ShareToTimeLineUI";
+        }else{
+            activity="com.tencent.mm.ui.tools.ShareImgUI";
+        }
+        if (isAvilible(packageName, context)) {
+            Intent intent = new Intent();
+            ComponentName comp = new ComponentName(packageName, activity);
+            intent.setComponent(comp);
+            intent.setAction(Intent.ACTION_SEND_MULTIPLE);
+            intent.setType("image/*");
+
+            ArrayList<Uri> imageUris = new ArrayList<>();
+            if (null != uri) {
+                imageUris.add(uri);
+//                for (String f : files) {
+//                    // 7.0及以上需要使用MediaStore.Images.Media.insertImage()转化一下uri？
+//                    // 测试7.0  7.1 未发现这样有bug
+//                    imageUris.add(Uri.fromFile(new File(f)));
+//                }
+            }
+            intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
+            intent.putExtra("Kdescription", ""); // 作用于发朋友圈，对好友不会有影响
+            context.startActivity(intent);
+        } else {
+            APP.getInstance().getToastor().showToast("请先安装微信APP");
+        }
+    }
     
     
     
